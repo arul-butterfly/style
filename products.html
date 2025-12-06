@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Products | StyleVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over $99</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-gift"></i> Use Code STYLE20 for 20% Off</span>
+        </div>
+        <button class="announcement-close" aria-label="Close announcement"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Style<span class="logo-accent">Verse</span></span>
+            </a>
+            <nav class="nav-main" id="navMain">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="products.html?category=women" class="nav-link">Women</a></li>
+                    <li class="nav-item"><a href="products.html?category=men" class="nav-link">Men</a></li>
+                    <li class="nav-item"><a href="products.html?category=accessories" class="nav-link">Accessories</a></li>
+                    <li class="nav-item"><a href="products.html?sale=true" class="nav-link nav-link-sale">Sale</a></li>
+                    <li class="nav-item"><a href="products.html?new=true" class="nav-link">New Arrivals</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="action-btn search-toggle" aria-label="Search"><i class="fas fa-search"></i></button>
+                <div class="search-overlay" id="searchOverlay">
+                    <div class="search-modal">
+                        <form class="search-form" action="products.html" method="GET">
+                            <input type="text" name="search" placeholder="Search products..." class="search-input">
+                            <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <button class="search-close"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <button class="action-btn" id="loginBtn" aria-label="Account"><i class="fas fa-user"></i></button>
+                <a href="#" class="action-btn wishlist-btn" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge wishlist-count">0</span>
+                </a>
+                <button class="action-btn cart-btn" id="cartToggle" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Cart Sidebar -->
+    <div class="mini-cart-overlay" id="miniCartOverlay"></div>
+    <aside class="mini-cart" id="miniCart">
+        <div class="mini-cart-header">
+            <h3>Shopping Bag <span class="cart-count-text">(0 items)</span></h3>
+            <button class="mini-cart-close" id="miniCartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mini-cart-body" id="miniCartBody">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bag is empty</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+        <div class="mini-cart-footer" id="miniCartFooter" style="display: none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" class="btn btn-outline">View Bag</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="products-page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current" id="breadcrumbCurrent">All Products</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title" id="pageTitle">All Products</h1>
+                <p class="page-description">Discover our complete collection of premium fashion</p>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-layout">
+            <div class="container">
+                <div class="products-wrapper">
+                    <!-- Filter Sidebar -->
+                    <aside class="filter-sidebar" id="filterSidebar">
+                        <div class="filter-sidebar-header">
+                            <h3>Filters</h3>
+                            <button class="filter-close-mobile" id="filterCloseMobile"><i class="fas fa-times"></i></button>
+                        </div>
+
+                        <!-- Applied Filters -->
+                        <div class="applied-filters" id="appliedFilters" style="display: none;">
+                            <div class="applied-filters-header">
+                                <span>Applied Filters</span>
+                                <button class="clear-all-filters" id="clearAllFilters">Clear All</button>
+                            </div>
+                            <div class="filter-tags" id="filterTags"></div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Categories</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <ul class="filter-list">
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="category" value="women"><span class="checkmark"></span>Women <span class="filter-count">(156)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="category" value="men"><span class="checkmark"></span>Men <span class="filter-count">(142)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="category" value="accessories"><span class="checkmark"></span>Accessories <span class="filter-count">(89)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="category" value="shoes"><span class="checkmark"></span>Shoes <span class="filter-count">(124)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="category" value="bags"><span class="checkmark"></span>Bags <span class="filter-count">(67)</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Price Range</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <div class="price-slider">
+                                    <div class="price-inputs">
+                                        <div class="price-input">
+                                            <label>Min</label>
+                                            <input type="number" id="priceMin" value="0" min="0">
+                                        </div>
+                                        <span class="price-separator">-</span>
+                                        <div class="price-input">
+                                            <label>Max</label>
+                                            <input type="number" id="priceMax" value="500" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="range-slider">
+                                        <input type="range" id="priceRangeMin" min="0" max="1000" value="0">
+                                        <input type="range" id="priceRangeMax" min="0" max="1000" value="500">
+                                        <div class="slider-track"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Brand</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <ul class="filter-list">
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="brand" value="gucci"><span class="checkmark"></span>Gucci <span class="filter-count">(24)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="brand" value="prada"><span class="checkmark"></span>Prada <span class="filter-count">(18)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="brand" value="versace"><span class="checkmark"></span>Versace <span class="filter-count">(15)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="brand" value="dior"><span class="checkmark"></span>Dior <span class="filter-count">(21)</span></label></li>
+                                    <li><label class="filter-checkbox"><input type="checkbox" name="brand" value="armani"><span class="checkmark"></span>Armani <span class="filter-count">(19)</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Size -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Size</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <div class="size-grid">
+                                    <label class="size-option"><input type="checkbox" name="size" value="xs"><span>XS</span></label>
+                                    <label class="size-option"><input type="checkbox" name="size" value="s"><span>S</span></label>
+                                    <label class="size-option"><input type="checkbox" name="size" value="m"><span>M</span></label>
+                                    <label class="size-option"><input type="checkbox" name="size" value="l"><span>L</span></label>
+                                    <label class="size-option"><input type="checkbox" name="size" value="xl"><span>XL</span></label>
+                                    <label class="size-option"><input type="checkbox" name="size" value="xxl"><span>XXL</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Color -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Color</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <div class="color-grid">
+                                    <label class="color-option" title="Black"><input type="checkbox" name="color" value="black"><span class="color-swatch" style="background:#000"></span></label>
+                                    <label class="color-option" title="White"><input type="checkbox" name="color" value="white"><span class="color-swatch" style="background:#fff;border:1px solid #ddd"></span></label>
+                                    <label class="color-option" title="Navy"><input type="checkbox" name="color" value="navy"><span class="color-swatch" style="background:#1a1a2e"></span></label>
+                                    <label class="color-option" title="Red"><input type="checkbox" name="color" value="red"><span class="color-swatch" style="background:#e63946"></span></label>
+                                    <label class="color-option" title="Green"><input type="checkbox" name="color" value="green"><span class="color-swatch" style="background:#2a9d8f"></span></label>
+                                    <label class="color-option" title="Blue"><input type="checkbox" name="color" value="blue"><span class="color-swatch" style="background:#3a86ff"></span></label>
+                                    <label class="color-option" title="Pink"><input type="checkbox" name="color" value="pink"><span class="color-swatch" style="background:#ff69b4"></span></label>
+                                    <label class="color-option" title="Brown"><input type="checkbox" name="color" value="brown"><span class="color-swatch" style="background:#8b4513"></span></label>
+                                    <label class="color-option" title="Gold"><input type="checkbox" name="color" value="gold"><span class="color-swatch" style="background:#c9a959"></span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="filter-group">
+                            <button class="filter-header" aria-expanded="true">
+                                <span>Rating</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-content">
+                                <ul class="filter-list">
+                                    <li><label class="filter-checkbox"><input type="radio" name="rating" value="4"><span class="checkmark"></span><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span> & Up</label></li>
+                                    <li><label class="filter-checkbox"><input type="radio" name="rating" value="3"><span class="checkmark"></span><span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span> & Up</label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Apply -->
+                        <div class="filter-actions-mobile">
+                            <button class="btn btn-outline" id="clearFiltersMobile">Clear</button>
+                            <button class="btn btn-primary" id="applyFiltersMobile">Apply</button>
+                        </div>
+                    </aside>
+
+                    <div class="filter-overlay" id="filterOverlay"></div>
+
+                    <!-- Products Content -->
+                    <div class="products-content">
+                        <!-- Toolbar -->
+                        <div class="products-toolbar">
+                            <div class="toolbar-left">
+                                <button class="filter-toggle-mobile" id="filterToggleMobile">
+                                    <i class="fas fa-sliders-h"></i> Filters
+                                </button>
+                                <span class="results-count" id="resultsCount">Showing 1-24 of 456 products</span>
+                            </div>
+                            <div class="toolbar-right">
+                                <div class="sort-dropdown">
+                                    <label for="sortSelect">Sort:</label>
+                                    <select id="sortSelect" class="sort-select">
+                                        <option value="featured">Featured</option>
+                                        <option value="newest">Newest</option>
+                                        <option value="price-low">Price: Low to High</option>
+                                        <option value="price-high">Price: High to Low</option>
+                                        <option value="rating">Top Rated</option>
+                                    </select>
+                                </div>
+                                <div class="view-toggle">
+                                    <button class="view-btn active" data-view="grid-4" title="Grid"><i class="fas fa-th"></i></button>
+                                    <button class="view-btn" data-view="grid-3" title="Large Grid"><i class="fas fa-th-large"></i></button>
+                                    <button class="view-btn" data-view="list" title="List"><i class="fas fa-list"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid grid-4" id="productsGrid">
+                            <!-- Products loaded via JS -->
+                        </div>
+
+                        <!-- Loading -->
+                        <div class="products-loading" id="productsLoading" style="display: none;">
+                            <div class="skeleton-grid">
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+                                <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+                            </div>
+                        </div>
+
+                        <!-- No Results -->
+                        <div class="no-results" id="noResults" style="display: none;">
+                            <i class="fas fa-search"></i>
+                            <h3>No products found</h3>
+                            <p>Try adjusting your filters</p>
+                            <button class="btn btn-primary" id="clearFiltersNoResults">Clear Filters</button>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination" id="pagination">
+                            <button class="pagination-btn prev" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                            <div class="pagination-numbers">
+                                <button class="pagination-num active">1</button>
+                                <button class="pagination-num">2</button>
+                                <button class="pagination-num">3</button>
+                                <span class="pagination-ellipsis">...</span>
+                                <button class="pagination-num">19</button>
+                            </div>
+                            <button class="pagination-btn next">Next <i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal quick-view-modal">
+            <button class="modal-close" id="quickViewClose"><i class="fas fa-times"></i></button>
+            <div class="quick-view-content" id="quickViewContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <a href="index.html" class="footer-logo">Style<span>Verse</span></a>
+                        <p>Your destination for premium fashion and lifestyle products.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="products.html?category=women">Women</a></li>
+                            <li><a href="products.html?category=men">Men</a></li>
+                            <li><a href="products.html?category=accessories">Accessories</a></li>
+                            <li><a href="products.html?sale=true">Sale</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 StyleVerse. All rights reserved.</p>
+                <div class="payment-methods">
+    
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="authModalClose"><i class="fas fa-times"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+            <form class="auth-form" id="registerForm" style="display: none;">
+                <div class="form-group">
+                    <label for="registerName">Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

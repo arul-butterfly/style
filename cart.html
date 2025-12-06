@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | StyleVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over $99</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-gift"></i> Use Code STYLE20 for 20% Off</span>
+        </div>
+        <button class="announcement-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Style<span class="logo-accent">Verse</span></span>
+            </a>
+            <nav class="nav-main" id="navMain">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="products.html?category=women" class="nav-link">Women</a></li>
+                    <li class="nav-item"><a href="products.html?category=men" class="nav-link">Men</a></li>
+                    <li class="nav-item"><a href="products.html?category=accessories" class="nav-link">Accessories</a></li>
+                    <li class="nav-item"><a href="products.html?sale=true" class="nav-link nav-link-sale">Sale</a></li>
+                    <li class="nav-item"><a href="products.html?new=true" class="nav-link">New Arrivals</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="action-btn search-toggle"><i class="fas fa-search"></i></button>
+                <a href="#" class="action-btn wishlist-btn">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge wishlist-count">0</span>
+                </a>
+                <button class="action-btn cart-btn" id="cartToggle">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Cart Sidebar -->
+    <div class="mini-cart-overlay" id="miniCartOverlay"></div>
+    <aside class="mini-cart" id="miniCart">
+        <div class="mini-cart-header">
+            <h3>Shopping Bag <span class="cart-count-text">(0 items)</span></h3>
+            <button class="mini-cart-close" id="miniCartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mini-cart-body" id="miniCartBody"></div>
+        <div class="mini-cart-footer" id="miniCartFooter" style="display: none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" class="btn btn-outline">View Bag</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="cart-page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Shopping Bag</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Page Title -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">Shopping Bag</h1>
+            </div>
+        </div>
+
+        <div class="cart-content">
+            <div class="container">
+                <!-- Empty Cart State -->
+                <div class="empty-cart-state" id="emptyCartPage" style="display: none;">
+                    <div class="empty-cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h2>Your bag is empty</h2>
+                    <p>Looks like you haven't added anything to your bag yet.</p>
+                    <a href="products.html" class="btn btn-primary btn-lg">Start Shopping</a>
+                </div>
+
+                <!-- Cart With Items -->
+                <div class="cart-wrapper" id="cartWrapper">
+                    <!-- Cart Main Section -->
+                    <div class="cart-main">
+                        <!-- Free Shipping Progress -->
+                        <div class="shipping-progress-bar">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="shippingProgress"></div>
+                            </div>
+                            <p class="progress-message" id="shippingMessage">
+                                <i class="fas fa-truck"></i>
+                                Add <strong>$99.00</strong> more for FREE Shipping
+                            </p>
+                        </div>
+
+                        <!-- Cart Table Header -->
+                        <div class="cart-table-header">
+                            <div class="col-product">Product</div>
+                            <div class="col-price">Price</div>
+                            <div class="col-quantity">Quantity</div>
+                            <div class="col-total">Total</div>
+                            <div class="col-actions"></div>
+                        </div>
+
+                        <!-- Cart Items Container -->
+                        <div class="cart-items-container" id="cartItems">
+                            <!-- Items will be rendered by JavaScript -->
+                        </div>
+
+                        <!-- Cart Actions -->
+                        <div class="cart-bottom-actions">
+                            <a href="products.html" class="btn btn-outline">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                            <button class="btn btn-outline btn-danger" id="clearCart">
+                                <i class="fas fa-trash-alt"></i> Clear Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary Sidebar -->
+                    <aside class="order-summary">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+
+                            <!-- Coupon Code -->
+                            <div class="coupon-section">
+                                <div class="coupon-input-wrapper">
+                                    <input type="text" placeholder="Enter coupon code" id="couponInput">
+                                    <button class="btn btn-sm" id="applyCoupon">Apply</button>
+                                </div>
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <!-- Summary Details -->
+                            <div class="summary-details">
+                                <div class="summary-row">
+                                    <span>Subtotal</span>
+                                    <span id="subtotal">$0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Shipping</span>
+                                    <span id="shippingAmount">$9.99</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Estimated Tax</span>
+                                    <span id="taxAmount">$0.00</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <!-- Total -->
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span id="totalAmount">$0.00</span>
+                            </div>
+
+                            <!-- Checkout Button -->
+                            <a href="checkout.html" class="btn btn-primary btn-lg btn-block checkout-btn">
+                                Proceed to Checkout
+                            </a>
+
+                            <!-- Express Checkout -->
+                            <div class="express-checkout">
+                                <p class="express-label">Express Checkout</p>
+                                <div class="express-buttons">
+                                    <button class="express-btn paypal">
+                                        <i class="fab fa-paypal"></i> PayPal
+                                    </button>
+                                    <button class="express-btn google">
+                                        <i class="fab fa-google-pay"></i>
+                                    </button>
+                                    <button class="express-btn apple">
+                                        <i class="fab fa-apple-pay"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Trust Badges -->
+                            <div class="trust-badges">
+                                <div class="trust-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Secure Checkout</span>
+                                </div>
+                                <div class="trust-item">
+                                    <i class="fas fa-undo"></i>
+                                    <span>Easy Returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 StyleVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

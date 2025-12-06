@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleVerse | Premium Fashion & Lifestyle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over $99</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-gift"></i> Use Code STYLE20 for 20% Off</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-undo"></i> 30-Day Easy Returns</span>
+        </div>
+        <button class="announcement-close" aria-label="Close announcement">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-text">Style<span class="logo-accent">Verse</span></span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="nav-main" id="navMain">
+                <ul class="nav-list">
+                    <li class="nav-item has-dropdown">
+                        <a href="products.html" class="nav-link">
+                            Women
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-container">
+                                <div class="mega-menu-column">
+                                    <h4>Clothing</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=dresses">Dresses</a></li>
+                                        <li><a href="products.html?category=tops">Tops & Blouses</a></li>
+                                        <li><a href="products.html?category=pants">Pants & Trousers</a></li>
+                                        <li><a href="products.html?category=skirts">Skirts</a></li>
+                                        <li><a href="products.html?category=jackets">Jackets & Coats</a></li>
+                                        <li><a href="products.html?category=knitwear">Knitwear</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Accessories</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=bags">Bags & Purses</a></li>
+                                        <li><a href="products.html?category=jewelry">Jewelry</a></li>
+                                        <li><a href="products.html?category=scarves">Scarves & Wraps</a></li>
+                                        <li><a href="products.html?category=belts">Belts</a></li>
+                                        <li><a href="products.html?category=sunglasses">Sunglasses</a></li>
+                                        <li><a href="products.html?category=watches">Watches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Shoes</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=heels">Heels</a></li>
+                                        <li><a href="products.html?category=flats">Flats</a></li>
+                                        <li><a href="products.html?category=boots">Boots</a></li>
+                                        <li><a href="products.html?category=sneakers">Sneakers</a></li>
+                                        <li><a href="products.html?category=sandals">Sandals</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-featured">
+                                    <div class="featured-card">
+                                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=500&fit=crop" alt="New Collection">
+                                        <div class="featured-overlay">
+                                            <span class="featured-label">New In</span>
+                                            <h3>Spring Collection</h3>
+                                            <a href="products.html" class="featured-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="products.html" class="nav-link">
+                            Men
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-container">
+                                <div class="mega-menu-column">
+                                    <h4>Clothing</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=shirts">Shirts</a></li>
+                                        <li><a href="products.html?category=tshirts">T-Shirts</a></li>
+                                        <li><a href="products.html?category=pants-men">Pants</a></li>
+                                        <li><a href="products.html?category=jeans">Jeans</a></li>
+                                        <li><a href="products.html?category=suits">Suits & Blazers</a></li>
+                                        <li><a href="products.html?category=jackets-men">Jackets</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Accessories</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=ties">Ties & Bowties</a></li>
+                                        <li><a href="products.html?category=wallets">Wallets</a></li>
+                                        <li><a href="products.html?category=bags-men">Bags</a></li>
+                                        <li><a href="products.html?category=belts-men">Belts</a></li>
+                                        <li><a href="products.html?category=watches-men">Watches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4>Shoes</h4>
+                                    <ul>
+                                        <li><a href="products.html?category=formal">Formal Shoes</a></li>
+                                        <li><a href="products.html?category=casual">Casual Shoes</a></li>
+                                        <li><a href="products.html?category=sneakers-men">Sneakers</a></li>
+                                        <li><a href="products.html?category=boots-men">Boots</a></li>
+                                        <li><a href="products.html?category=loafers">Loafers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-featured">
+                                    <div class="featured-card">
+                                        <img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=400&h=500&fit=crop" alt="New Collection">
+                                        <div class="featured-overlay">
+                                            <span class="featured-label">Trending</span>
+                                            <h3>Smart Casuals</h3>
+                                            <a href="products.html" class="featured-link">Explore <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html?category=accessories" class="nav-link">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html?sale=true" class="nav-link nav-link-sale">Sale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html?new=true" class="nav-link">New Arrivals</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Search -->
+                <div class="search-container">
+                    <button class="action-btn search-toggle" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-overlay" id="searchOverlay">
+                        <div class="search-modal">
+                            <form class="search-form" action="products.html" method="GET">
+                                <input type="text" name="search" placeholder="Search for products, brands..." class="search-input" id="searchInput">
+                                <button type="submit" class="search-submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                            <button class="search-close" aria-label="Close search">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="search-suggestions">
+                                <div class="suggestion-group">
+                                    <h4>Popular Searches</h4>
+                                    <div class="suggestion-tags">
+                                        <a href="products.html?search=dresses">Dresses</a>
+                                        <a href="products.html?search=sneakers">Sneakers</a>
+                                        <a href="products.html?search=bags">Bags</a>
+                                        <a href="products.html?search=watches">Watches</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account -->
+                <div class="account-dropdown">
+                    <button class="action-btn" aria-label="Account">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="dropdown-menu account-menu">
+                        <div class="dropdown-header">
+                            <h4>My Account</h4>
+                        </div>
+                        <div class="dropdown-body">
+                            <a href="#" class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Sign In
+                            </a>
+                            <a href="#" class="dropdown-item" id="registerBtn">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-body logged-in-menu" style="display: none;">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-box"></i>
+                                My Orders
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-heart"></i>
+                                Wishlist
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <a href="#" class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wishlist -->
+                <a href="#" class="action-btn wishlist-btn" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge wishlist-count">0</span>
+                </a>
+
+                <!-- Cart -->
+                <button class="action-btn cart-btn" aria-label="Cart" id="cartToggle">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Cart Sidebar -->
+    <div class="mini-cart-overlay" id="miniCartOverlay"></div>
+    <aside class="mini-cart" id="miniCart">
+        <div class="mini-cart-header">
+            <h3>Shopping Bag <span class="cart-count-text">(0 items)</span></h3>
+            <button class="mini-cart-close" id="miniCartClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mini-cart-body" id="miniCartBody">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bag is empty</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+        <div class="mini-cart-footer" id="miniCartFooter" style="display: none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" class="btn btn-outline">View Bag</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+            <p class="cart-note">Shipping & taxes calculated at checkout</p>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider" id="heroSlider">
+                <!-- Slide 1 -->
+                <div class="hero-slide active" data-slide="1">
+                    <div class="hero-bg">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&h=1080&fit=crop" alt="Summer Collection">
+                    </div>
+                    <div class="hero-content">
+                        <span class="hero-subtitle">New Season</span>
+                        <h1 class="hero-title">Summer Collection 2025</h1>
+                        <p class="hero-description">Discover effortless elegance with our curated selection of timeless pieces designed for the modern wardrobe.</p>
+                        <div class="hero-actions">
+                            <a href="products.html" class="btn btn-primary btn-lg">Shop Collection</a>
+                            <a href="products.html?category=lookbook" class="btn btn-outline btn-lg">View Lookbook</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide" data-slide="2">
+                    <div class="hero-bg">
+                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1920&h=1080&fit=crop" alt="Exclusive Sale">
+                    </div>
+                    <div class="hero-content">
+                        <span class="hero-subtitle">Limited Time</span>
+                        <h1 class="hero-title">Up to 50% Off</h1>
+                        <p class="hero-description">Don't miss our biggest sale of the season. Premium styles at unbeatable prices.</p>
+                        <div class="hero-actions">
+                            <a href="products.html?sale=true" class="btn btn-primary btn-lg">Shop Sale</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide" data-slide="3">
+                    <div class="hero-bg">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1920&h=1080&fit=crop" alt="New Arrivals">
+                    </div>
+                    <div class="hero-content">
+                        <span class="hero-subtitle">Just Dropped</span>
+                        <h1 class="hero-title">New Arrivals</h1>
+                        <p class="hero-description">Be the first to discover our latest additions. Fresh styles updated weekly.</p>
+                        <div class="hero-actions">
+                            <a href="products.html?new=true" class="btn btn-primary btn-lg">Explore New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Navigation -->
+            <div class="hero-nav">
+                <button class="hero-nav-btn prev" id="heroPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="hero-dots">
+                    <button class="hero-dot active" data-slide="1"></button>
+                    <button class="hero-dot" data-slide="2"></button>
+                    <button class="hero-dot" data-slide="3"></button>
+                </div>
+                <button class="hero-nav-btn next" id="heroNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Browse by</span>
+                    <h2 class="section-title">Shop Categories</h2>
+                </div>
+                <div class="categories-grid">
+                    <a href="products.html?category=women" class="category-card category-card-large">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=800&fit=crop" alt="Women">
+                        </div>
+                        <div class="category-content">
+                            <h3>Women</h3>
+                            <span class="category-count">250+ Products</span>
+                        </div>
+                    </a>
+                    <a href="products.html?category=men" class="category-card category-card-large">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=600&h=800&fit=crop" alt="Men">
+                        </div>
+                        <div class="category-content">
+                            <h3>Men</h3>
+                            <span class="category-count">200+ Products</span>
+                        </div>
+                    </a>
+                    <a href="products.html?category=accessories" class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop" alt="Accessories">
+                        </div>
+                        <div class="category-content">
+                            <h3>Accessories</h3>
+                            <span class="category-count">150+ Products</span>
+                        </div>
+                    </a>
+                    <a href="products.html?category=shoes" class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop" alt="Shoes">
+                        </div>
+                        <div class="category-content">
+                            <h3>Shoes</h3>
+                            <span class="category-count">180+ Products</span>
+                        </div>
+                    </a>
+                    <a href="products.html?category=bags" class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=400&fit=crop" alt="Bags">
+                        </div>
+                        <div class="category-content">
+                            <h3>Bags</h3>
+                            <span class="category-count">90+ Products</span>
+                        </div>
+                    </a>
+                    <a href="products.html?category=jewelry" class="category-card">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop" alt="Jewelry">
+                        </div>
+                        <div class="category-content">
+                            <h3>Jewelry</h3>
+                            <span class="category-count">120+ Products</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="products-section section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Handpicked for you</span>
+                    <h2 class="section-title">Featured Products</h2>
+                    <a href="products.html?featured=true" class="section-link">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Products will be loaded via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Section -->
+        <section class="promo-banner">
+            <div class="promo-banner-content">
+                <div class="promo-text">
+                    <span class="promo-label">Limited Offer</span>
+                    <h2>Get 20% Off Your First Order</h2>
+                    <p>Sign up for our newsletter and receive exclusive discounts, early access to sales, and style tips.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+                <div class="promo-image">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop" alt="Fashion promotion">
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="products-section section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Just In</span>
+                    <h2 class="section-title">New Arrivals</h2>
+                    <a href="products.html?new=true" class="section-link">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="newArrivals">
+                    <!-- Products will be loaded via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Section -->
+        <section class="deals-section section">
+            <div class="container">
+                <div class="deals-header">
+                    <div class="deals-title">
+                        <span class="section-subtitle">Today's</span>
+                        <h2 class="section-title">Flash Deals</h2>
+                    </div>
+                    <div class="countdown" id="dealCountdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="deals-slider-container">
+                    <div class="deals-slider" id="dealsSlider">
+                        <!-- Deal products will be loaded via JavaScript -->
+                    </div>
+                    <button class="slider-nav slider-prev" id="dealsPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-nav slider-next" id="dealsNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section section">
+    <div class="container">
+        <div class="section-header centered">
+            <span class="section-subtitle">Trusted by</span>
+            <h2 class="section-title">Top Indian Fashion Brands</h2>
+        </div>
+
+        <div class="brands-slider">
+            <div class="brands-track">
+
+               <div class="brand-item"><img src="./IMAGE/myntra-1.svg" alt="Myntra"></div>
+<div class="brand-item"><img src="./IMAGE/AJIO.jpg" alt="Ajio"></div>
+<div class="brand-item"><img src="./IMAGE/FLIPCART.jpg" alt="Flipkart"></div>
+<div class="brand-item"><img src="./IMAGE/AMAZON.png" alt="Amazon"></div>
+<div class="brand-item"><img src="./IMAGE/TATA.png" alt="Tata CliQ"></div>
+<div class="brand-item"><img src="./IMAGE/MEESHIW.jpg" alt="Meesho"></div>
+<div class="brand-item"><img src="./IMAGE/NYKA.png" alt="Nykaa"></div>
+<div class="brand-item"><img src="./IMAGE/TRENDS.png" alt="Reliance Trends"></div>
+                
+                <div class="brand-item"><img src="./IMAGE/myntra-1.svg" alt="Myntra"></div>
+                <div class="brand-item"><img src="./IMAGE/AJIO.jpg" alt="Ajio"></div>
+                <div class="brand-item"><img src="./IMAGE/FLIPCART.jpg" alt="Flipkart"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section section section-alt">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-subtitle">What our customers say</span>
+                    <h2 class="section-title">Customer Reviews</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Absolutely love the quality of clothes I received! The fit is perfect and the fabric feels premium. Will definitely be ordering again."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah M.">
+                            <div>
+                                <h4>Sarah M.</h4>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Fast shipping and excellent customer service. The dress I ordered looked exactly like the photos. StyleVerse is now my go-to fashion destination!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="James L.">
+                            <div>
+                                <h4>James L.</h4>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"Great selection of trendy items at reasonable prices. The size guide was accurate and returns were hassle-free. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Emily R.">
+                            <div>
+                                <h4>Emily R.</h4>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Free Shipping</h3>
+                        <p>On orders over $99</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>Easy Returns</h3>
+                        <p>30-day return policy</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure Payment</h3>
+                        <p>100% secure checkout</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Dedicated support team</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram-section section">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-subtitle">Follow us on</span>
+                    <h2 class="section-title">@StyleVerse</h2>
+                </div>
+                <div class="instagram-grid">
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1485968579169-a6b15e9bbc0e?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop" alt="Instagram">
+                        <div class="instagram-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <a href="index.html" class="footer-logo">
+                            Style<span>Verse</span>
+                        </a>
+                        <p>Your destination for premium fashion and lifestyle products. We curate the finest pieces from around the world to bring you timeless style.</p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="products.html?category=women">Women</a></li>
+                            <li><a href="products.html?category=men">Men</a></li>
+                            <li><a href="products.html?category=accessories">Accessories</a></li>
+                            <li><a href="products.html?category=shoes">Shoes</a></li>
+                            <li><a href="products.html?new=true">New Arrivals</a></li>
+                            <li><a href="products.html?sale=true">Sale</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                            <li><a href="#">Affiliate Program</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col footer-newsletter">
+                        <h4>Stay Updated</h4>
+                        <p>Subscribe to get special offers, free giveaways, and exclusive deals.</p>
+                        <form class="footer-newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 StyleVerse. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                    <div class="payment-methods">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="authModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Create Account</button>
+            </div>
+            <!-- Login Form -->
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" required>
+                        <button type="button" class="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+            </form>
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="registerPassword" required minlength="8">
+                        <button type="button" class="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                    </div>
+                    <span class="form-hint">At least 8 characters</span>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter">
+                        <span class="checkmark"></span>
+                        Subscribe to our newsletter for exclusive offers
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

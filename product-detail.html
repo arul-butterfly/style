@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name | StyleVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over $99</span>
+            <span class="divider">|</span>
+            <span><i class="fas fa-gift"></i> Use Code STYLE20 for 20% Off</span>
+        </div>
+        <button class="announcement-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Style<span class="logo-accent">Verse</span></span>
+            </a>
+            <nav class="nav-main" id="navMain">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="products.html?category=women" class="nav-link">Women</a></li>
+                    <li class="nav-item"><a href="products.html?category=men" class="nav-link">Men</a></li>
+                    <li class="nav-item"><a href="products.html?category=accessories" class="nav-link">Accessories</a></li>
+                    <li class="nav-item"><a href="products.html?sale=true" class="nav-link nav-link-sale">Sale</a></li>
+                    <li class="nav-item"><a href="products.html?new=true" class="nav-link">New Arrivals</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="action-btn search-toggle"><i class="fas fa-search"></i></button>
+                <div class="search-overlay" id="searchOverlay">
+                    <div class="search-modal">
+                        <form class="search-form" action="products.html" method="GET">
+                            <input type="text" name="search" placeholder="Search products..." class="search-input">
+                            <button type="submit" class="search-submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <button class="search-close"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <button class="action-btn" id="loginBtn"><i class="fas fa-user"></i></button>
+                <a href="#" class="action-btn wishlist-btn">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge wishlist-count">0</span>
+                </a>
+                <button class="action-btn cart-btn" id="cartToggle">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Cart Sidebar -->
+    <div class="mini-cart-overlay" id="miniCartOverlay"></div>
+    <aside class="mini-cart" id="miniCart">
+        <div class="mini-cart-header">
+            <h3>Shopping Bag <span class="cart-count-text">(0 items)</span></h3>
+            <button class="mini-cart-close" id="miniCartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mini-cart-body" id="miniCartBody">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bag is empty</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+        <div class="mini-cart-footer" id="miniCartFooter" style="display: none;">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" class="btn btn-outline">View Bag</a>
+                <a href="checkout.html" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="product-detail-page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <a href="products.html">Products</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <a href="products.html?category=women">Women</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current" id="productBreadcrumb">Product Name</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Product Section -->
+        <section class="product-detail-section">
+            <div class="container">
+                <div class="product-detail-wrapper">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <div class="gallery-main-image" id="mainImage">
+                                <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1000&fit=crop" alt="Product Image" id="productMainImg">
+                                <button class="gallery-zoom" id="galleryZoom">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <div class="product-badges">
+                                    <span class="badge badge-new">New</span>
+                                    <span class="badge badge-sale">-20%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbnails" id="galleryThumbnails">
+                            <button class="thumbnail active" data-img="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1000&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=150&h=180&fit=crop" alt="Thumbnail 1">
+                            </button>
+                            <button class="thumbnail" data-img="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=150&h=180&fit=crop" alt="Thumbnail 2">
+                            </button>
+                            <button class="thumbnail" data-img="https://images.unsplash.com/photo-1485968579169-a6b15e9bbc0e?w=800&h=1000&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1485968579169-a6b15e9bbc0e?w=150&h=180&fit=crop" alt="Thumbnail 3">
+                            </button>
+                            <button class="thumbnail" data-img="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=1000&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=150&h=180&fit=crop" alt="Thumbnail 4">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-info">
+                        <div class="product-info-header">
+                            <span class="product-brand">StyleVerse Collection</span>
+                            <h1 class="product-title" id="productTitle">Elegant Silk Blend Midi Dress</h1>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-count">(128 reviews)</span>
+                                <a href="#reviews" class="write-review-link">Write a review</a>
+                            </div>
+                        </div>
+
+                        <div class="product-price-block">
+                            <span class="current-price" id="currentPrice">$149.99</span>
+                            <span class="original-price" id="originalPrice">$189.99</span>
+                            <span class="discount-badge">Save 21%</span>
+                        </div>
+
+                        <p class="product-short-desc">
+                            A beautifully crafted midi dress featuring a luxurious silk blend fabric. 
+                            Perfect for special occasions or elegant evenings out.
+                        </p>
+
+                        <!-- Color Selection -->
+                        <div class="product-option">
+                            <div class="option-header">
+                                <span class="option-label">Color:</span>
+                                <span class="option-selected" id="selectedColor">Navy Blue</span>
+                            </div>
+                            <div class="color-options" id="colorOptions">
+                                <label class="color-option-btn active" title="Navy Blue">
+                                    <input type="radio" name="color" value="navy" checked>
+                                    <span class="color-swatch" style="background: #1a1a2e;"></span>
+                                </label>
+                                <label class="color-option-btn" title="Burgundy">
+                                    <input type="radio" name="color" value="burgundy">
+                                    <span class="color-swatch" style="background: #722f37;"></span>
+                                </label>
+                                <label class="color-option-btn" title="Emerald">
+                                    <input type="radio" name="color" value="emerald">
+                                    <span class="color-swatch" style="background: #2e8b57;"></span>
+                                </label>
+                                <label class="color-option-btn" title="Black">
+                                    <input type="radio" name="color" value="black">
+                                    <span class="color-swatch" style="background: #000;"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Size Selection -->
+                        <div class="product-option">
+                            <div class="option-header">
+                                <span class="option-label">Size:</span>
+                                <span class="option-selected" id="selectedSize">Select a size</span>
+                                <button class="size-guide-btn" id="sizeGuideBtn">
+                                    <i class="fas fa-ruler"></i> Size Guide
+                                </button>
+                            </div>
+                            <div class="size-options" id="sizeOptions">
+                                <label class="size-option-btn">
+                                    <input type="radio" name="size" value="xs">
+                                    <span>XS</span>
+                                </label>
+                                <label class="size-option-btn">
+                                    <input type="radio" name="size" value="s">
+                                    <span>S</span>
+                                </label>
+                                <label class="size-option-btn">
+                                    <input type="radio" name="size" value="m">
+                                    <span>M</span>
+                                </label>
+                                <label class="size-option-btn">
+                                    <input type="radio" name="size" value="l">
+                                    <span>L</span>
+                                </label>
+                                <label class="size-option-btn">
+                                    <input type="radio" name="size" value="xl">
+                                    <span>XL</span>
+                                </label>
+                                <label class="size-option-btn disabled">
+                                    <input type="radio" name="size" value="xxl" disabled>
+                                    <span>XXL</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="product-option">
+                            <span class="option-label">Quantity:</span>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus" id="qtyMinus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" value="1" min="1" max="10" class="qty-input" id="qtyInput">
+                                <button class="qty-btn plus" id="qtyPlus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <span class="stock-status in-stock">
+                                <i class="fas fa-check-circle"></i> In Stock
+                            </span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-lg add-to-cart-btn" id="addToCartBtn">
+                                <i class="fas fa-shopping-bag"></i>
+                                Add to Bag
+                            </button>
+                            <button class="btn btn-outline btn-lg buy-now-btn" id="buyNowBtn">
+                                Buy Now
+                            </button>
+                            <button class="btn btn-icon wishlist-toggle" id="wishlistToggle">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges">
+                            <div class="trust-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Shipping Over $99</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-undo"></i>
+                                <span>30-Day Returns</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Checkout</span>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Info -->
+                        <div class="delivery-info">
+                            <div class="delivery-check">
+                                <h4><i class="fas fa-map-marker-alt"></i> Check Delivery</h4>
+                                <div class="pincode-input">
+                                    <input type="text" placeholder="Enter pincode" id="pincodeInput" maxlength="6">
+                                    <button class="btn btn-sm" id="checkPincode">Check</button>
+                                </div>
+                                <p class="delivery-result" id="deliveryResult"></p>
+                            </div>
+                        </div>
+
+                        <!-- Share -->
+                        <div class="product-share">
+                            <span>Share:</span>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="share-btn pinterest"><i class="fab fa-pinterest"></i></a>
+                                <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                <button class="share-btn copy-link" id="copyLink"><i class="fas fa-link"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Tabs -->
+        <section class="product-tabs-section">
+            <div class="container">
+                <div class="product-tabs">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" data-tab="description">Description</button>
+                        <button class="tab-btn" data-tab="specifications">Specifications</button>
+                        <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews (128)</button>
+                    </div>
+                    <div class="tabs-content">
+                        <!-- Description Tab -->
+                        <div class="tab-panel active" id="description">
+                            <div class="description-content">
+                                <h3>About This Product</h3>
+                                <p>Elevate your wardrobe with this stunning Elegant Silk Blend Midi Dress. Crafted from a luxurious blend of silk and premium materials, this dress offers both comfort and sophistication for any occasion.</p>
+                                <p>The flattering midi length and timeless silhouette make this piece a versatile addition to your collection. Whether you're attending a garden party, a romantic dinner, or a special celebration, this dress ensures you'll make a lasting impression.</p>
+                                
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li>Premium silk blend fabric with a subtle sheen</li>
+                                    <li>Flattering A-line silhouette</li>
+                                    <li>Hidden back zipper closure</li>
+                                    <li>Midi length falls below the knee</li>
+                                    <li>Fully lined for comfort</li>
+                                    <li>Subtle pleating detail at the waist</li>
+                                </ul>
+
+                                <h4>Care Instructions</h4>
+                                <ul>
+                                    <li>Dry clean recommended</li>
+                                    <li>Iron on low heat if needed</li>
+                                    <li>Store on a padded hanger</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Specifications Tab -->
+                        <div class="tab-panel" id="specifications">
+                            <table class="specs-table">
+                                <tbody>
+                                    <tr>
+                                        <th>Material</th>
+                                        <td>70% Silk, 30% Polyester</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Length</th>
+                                        <td>Midi (Below Knee)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fit Type</th>
+                                        <td>Regular Fit</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Neckline</th>
+                                        <td>V-Neck</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sleeve Style</th>
+                                        <td>Short Sleeves</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Closure</th>
+                                        <td>Hidden Back Zipper</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Lining</th>
+                                        <td>Fully Lined</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pattern</th>
+                                        <td>Solid</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Occasion</th>
+                                        <td>Party, Formal, Casual</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Season</th>
+                                        <td>All Season</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Country of Origin</th>
+                                        <td>Italy</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SKU</th>
+                                        <td>SV-DRS-2025-001</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Shipping Tab -->
+                        <div class="tab-panel" id="shipping">
+                            <div class="shipping-content">
+                                <h3>Shipping Information</h3>
+                                <div class="shipping-options">
+                                    <div class="shipping-option">
+                                        <div class="option-icon"><i class="fas fa-truck"></i></div>
+                                        <div class="option-details">
+                                            <h4>Standard Shipping</h4>
+                                            <p>5-7 Business Days</p>
+                                            <span class="price">Free on orders over $99</span>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <div class="option-icon"><i class="fas fa-shipping-fast"></i></div>
+                                        <div class="option-details">
+                                            <h4>Express Shipping</h4>
+                                            <p>2-3 Business Days</p>
+                                            <span class="price">$12.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <div class="option-icon"><i class="fas fa-bolt"></i></div>
+                                        <div class="option-details">
+                                            <h4>Next Day Delivery</h4>
+                                            <p>Order before 2 PM</p>
+                                            <span class="price">$24.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3>Returns & Exchanges</h3>
+                                <p>We want you to love your purchase! If you're not completely satisfied, we offer hassle-free returns within 30 days of delivery.</p>
+                                <ul>
+                                    <li>Items must be unworn with original tags attached</li>
+                                    <li>Free returns on all domestic orders</li>
+                                    <li>Refunds processed within 5-7 business days</li>
+                                    <li>Exchange for different size or color available</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Reviews Tab -->
+                        <div class="tab-panel" id="reviews">
+                            <div class="reviews-section">
+                                <!-- Reviews Summary -->
+                                <div class="reviews-summary">
+                                    <div class="rating-overview">
+                                        <div class="rating-big">
+                                            <span class="rating-number">4.5</span>
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <span class="total-reviews">Based on 128 reviews</span>
+                                        </div>
+                                        <div class="rating-bars">
+                                            <div class="rating-bar-row">
+                                                <span>5 <i class="fas fa-star"></i></span>
+                                                <div class="bar"><div class="fill" style="width: 65%"></div></div>
+                                                <span>83</span>
+                                            </div>
+                                            <div class="rating-bar-row">
+                                                <span>4 <i class="fas fa-star"></i></span>
+                                                <div class="bar"><div class="fill" style="width: 25%"></div></div>
+                                                <span>32</span>
+                                            </div>
+                                            <div class="rating-bar-row">
+                                                <span>3 <i class="fas fa-star"></i></span>
+                                                <div class="bar"><div class="fill" style="width: 7%"></div></div>
+                                                <span>9</span>
+                                            </div>
+                                            <div class="rating-bar-row">
+                                                <span>2 <i class="fas fa-star"></i></span>
+                                                <div class="bar"><div class="fill" style="width: 2%"></div></div>
+                                                <span>3</span>
+                                            </div>
+                                            <div class="rating-bar-row">
+                                                <span>1 <i class="fas fa-star"></i></span>
+                                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                                <span>1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary write-review-btn" id="writeReviewBtn">
+                                        <i class="fas fa-pen"></i> Write a Review
+                                    </button>
+                                </div>
+
+                                <!-- Reviews Filter -->
+                                <div class="reviews-filter">
+                                    <div class="filter-left">
+                                        <span>Sort by:</span>
+                                        <select id="reviewSort">
+                                            <option value="recent">Most Recent</option>
+                                            <option value="helpful">Most Helpful</option>
+                                            <option value="highest">Highest Rated</option>
+                                            <option value="lowest">Lowest Rated</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-right">
+                                        <span>Filter:</span>
+                                        <button class="filter-btn active">All</button>
+                                        <button class="filter-btn">5 ★</button>
+                                        <button class="filter-btn">4 ★</button>
+                                        <button class="filter-btn">3 ★</button>
+                                        <button class="filter-btn">2 ★</button>
+                                        <button class="filter-btn">1 ★</button>
+                                    </div>
+                                </div>
+
+                                <!-- Reviews List -->
+                                <div class="reviews-list" id="reviewsList">
+                                    <div class="review-card">
+                                        <div class="review-header">
+                                            <div class="reviewer-info">
+                                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop" alt="Reviewer">
+                                                <div>
+                                                    <h4>Sarah M.</h4>
+                                                    <span class="verified"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="review-date">Dec 1, 2025</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="review-title">Absolutely Gorgeous!</h5>
+                                        <p class="review-text">This dress exceeded my expectations! The fabric is luxurious and the fit is perfect. I wore it to a wedding and received so many compliments. The color is exactly as shown in the photos. Highly recommend!</p>
+                                        <div class="review-meta">
+                                            <span class="size-purchased">Size purchased: M</span>
+                                            <span class="color-purchased">Color: Navy Blue</span>
+                                        </div>
+                                        <div class="review-images">
+                                            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=100&h=100&fit=crop" alt="Review image">
+                                            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=100&h=100&fit=crop" alt="Review image">
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="helpful-btn"><i class="far fa-thumbs-up"></i> Helpful (24)</button>
+                                            <button class="report-btn">Report</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="review-card">
+                                        <div class="review-header">
+                                            <div class="reviewer-info">
+                                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop" alt="Reviewer">
+                                                <div>
+                                                    <h4>Emily R.</h4>
+                                                    <span class="verified"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <span class="review-date">Nov 28, 2025</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="review-title">Beautiful dress, runs slightly small</h5>
+                                        <p class="review-text">The dress is beautiful and well-made. However, I found it runs a bit small, so I recommend sizing up. The material is lovely and it looks elegant. Fast shipping and great packaging.</p>
+                                        <div class="review-meta">
+                                            <span class="size-purchased">Size purchased: S</span>
+                                            <span class="color-purchased">Color: Burgundy</span>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="helpful-btn"><i class="far fa-thumbs-up"></i> Helpful (18)</button>
+                                            <button class="report-btn">Report</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="review-card">
+                                        <div class="review-header">
+                                            <div class="reviewer-info">
+                                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop" alt="Reviewer">
+                                                <div>
+                                                    <h4>Michael T.</h4>
+                                                    <span class="verified"><i class="fas fa-check-circle"></i> Verified Purchase</span>
+                                                </div>
+                                            </div>
+                                            <div class="review-rating">
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <span class="review-date">Nov 25, 2025</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="review-title">Perfect gift for my wife</h5>
+                                        <p class="review-text">Bought this as a surprise for my wife's birthday. She absolutely loves it! The quality is outstanding and it fits her perfectly. The packaging was also beautiful. Will definitely shop here again.</p>
+                                        <div class="review-meta">
+                                            <span class="size-purchased">Size purchased: M</span>
+                                            <span class="color-purchased">Color: Emerald</span>
+                                        </div>
+                                        <div class="review-actions">
+                                            <button class="helpful-btn"><i class="far fa-thumbs-up"></i> Helpful (12)</button>
+                                            <button class="report-btn">Report</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="reviews-load-more">
+                                    <button class="btn btn-outline" id="loadMoreReviews">Load More Reviews</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="related-products-section section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">You May Also Like</h2>
+                    <a href="products.html" class="section-link">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid grid-4" id="relatedProducts">
+                    <!-- Related products loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recently Viewed -->
+        <section class="recently-viewed-section section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recently Viewed</h2>
+                </div>
+                <div class="products-grid grid-4" id="recentlyViewed">
+                    <!-- Recently viewed loaded via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Size Guide Modal -->
+    <div class="modal-overlay" id="sizeGuideModal">
+        <div class="modal size-guide-modal">
+            <button class="modal-close" id="sizeGuideClose"><i class="fas fa-times"></i></button>
+            <h2>Size Guide</h2>
+            <div class="size-guide-content">
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>US</th>
+                            <th>UK</th>
+                            <th>EU</th>
+                            <th>Bust (in)</th>
+                            <th>Waist (in)</th>
+                            <th>Hips (in)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>XS</td><td>0-2</td><td>4-6</td><td>32-34</td><td>31-32</td><td>24-25</td><td>34-35</td></tr>
+                        <tr><td>S</td><td>4-6</td><td>8-10</td><td>36-38</td><td>33-34</td><td>26-27</td><td>36-37</td></tr>
+                        <tr><td>M</td><td>8-10</td><td>12-14</td><td>40-42</td><td>35-36</td><td>28-29</td><td>38-39</td></tr>
+                        <tr><td>L</td><td>12-14</td><td>16-18</td><td>44-46</td><td>37-39</td><td>30-32</td><td>40-42</td></tr>
+                        <tr><td>XL</td><td>16-18</td><td>20-22</td><td>48-50</td><td>40-42</td><td>33-35</td><td>43-45</td></tr>
+                        <tr><td>XXL</td><td>20-22</td><td>24-26</td><td>52-54</td><td>43-45</td><td>36-38</td><td>46-48</td></tr>
+                    </tbody>
+                </table>
+                <div class="size-tips">
+                    <h4>How to Measure</h4>
+                    <p><strong>Bust:</strong> Measure around the fullest part of your bust.</p>
+                    <p><strong>Waist:</strong> Measure around your natural waistline.</p>
+                    <p><strong>Hips:</strong> Measure around the fullest part of your hips.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Zoom Modal -->
+    <div class="modal-overlay" id="imageZoomModal">
+        <div class="modal image-zoom-modal">
+            <button class="modal-close" id="imageZoomClose"><i class="fas fa-times"></i></button>
+            <img src="" alt="Zoomed product image" id="zoomedImage">
+        </div>
+    </div>
+
+    <!-- Write Review Modal -->
+    <div class="modal-overlay" id="writeReviewModal">
+        <div class="modal write-review-modal">
+            <button class="modal-close" id="writeReviewClose"><i class="fas fa-times"></i></button>
+            <h2>Write a Review</h2>
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label>Your Rating</label>
+                    <div class="rating-input">
+                        <input type="radio" name="rating" value="5" id="star5"><label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" name="rating" value="4" id="star4"><label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" name="rating" value="3" id="star3"><label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" name="rating" value="2" id="star2"><label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" name="rating" value="1" id="star1"><label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewTitle">Review Title</label>
+                    <input type="text" id="reviewTitle" placeholder="Sum up your experience" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" rows="5" placeholder="What did you like or dislike?" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Add Photos (Optional)</label>
+                    <div class="photo-upload">
+                        <input type="file" id="reviewPhotos" multiple accept="image/*">
+                        <label for="reviewPhotos"><i class="fas fa-camera"></i> Add Photos</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <a href="index.html" class="footer-logo">Style<span>Verse</span></a>
+                        <p>Your destination for premium fashion and lifestyle products.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="products.html?category=women">Women</a></li>
+                            <li><a href="products.html?category=men">Men</a></li>
+                            <li><a href="products.html?category=accessories">Accessories</a></li>
+                            <li><a href="products.html?sale=true">Sale</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Help</h4>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 StyleVerse. All rights reserved.</p>
+                <div class="payment-methods">
+                  
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="authModalClose"><i class="fas fa-times"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+            <form class="auth-form" id="registerForm" style="display: none;">
+                <div class="form-group">
+                    <label for="registerName">Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
