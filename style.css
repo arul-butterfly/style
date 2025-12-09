@@ -6575,6 +6575,7 @@ coupon {
 }
 
 /* Product Card Styles */
+
 .product-card {
     background: #fff;
     border-radius: 16px;
@@ -7209,4 +7210,36 @@ coupon {
     .slider-nav {
         display: none;
     }
+}
+/* ============================
+   ✅ FORCE GRID VIEW LAYOUT
+   ============================ */
+
+/* ALWAYS STACK IMAGE + INFO IN GRID VIEW */
+.products-grid.grid-4 .product-card,
+.products-grid.grid-3 .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+/* ONLY LIST VIEW SHOULD BE SIDE-BY-SIDE */
+.products-grid.list .product-card {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+/* FIX INFO WIDTH */
+.product-info {
+    width: 100% !important;
+    display: block !important;
+}
+
+/* ENSURE OVERLAY & BUTTONS CLICKABLE */
+.product-overlay {
+    z-index: 20 !important;
+}
+
+.product-wishlist {
+    z-index: 25 !important;
 }
