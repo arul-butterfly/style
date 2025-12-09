@@ -5,224 +5,61 @@
 // =====================================================
 // PRODUCT DATA - 12 PRODUCTS
 // =====================================================
-const products = [
-    {
-        id: 1,
-        name: "Elegant Silk Blend Midi Dress",
-        brand: "StyleVerse Collection",
-        category: "women",
-        price: 149.99,
-        originalPrice: 189.99,
-        discount: 21,
-        rating: 4.5,
-        reviews: 128,
-        colors: ["#1a1a2e", "#722f37", "#2e8b57"],
-        colorNames: ["Navy Blue", "Burgundy", "Emerald"],
-        sizes: ["XS", "S", "M", "L", "XL"],
-        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=800&fit=crop",
-        badge: "new",
-        stock: 15,
-        featured: true
-    },
-    {
-        id: 2,
-        name: "Premium Running Sneakers",
-        brand: "SportMax",
-        category: "shoes",
-        price: 129.00,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.8,
-        reviews: 256,
-        colors: ["#e63946", "#3a86ff", "#000000"],
-        colorNames: ["Red", "Blue", "Black"],
-        sizes: ["38", "39", "40", "41", "42", "43"],
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=800&fit=crop",
-        badge: "bestseller",
-        stock: 45,
-        featured: true
-    },
-    {
-        id: 3,
-        name: "Leather Crossbody Bag",
-        brand: "Luxe Leather",
-        category: "bags",
-        price: 89.99,
-        originalPrice: 120.00,
-        discount: 25,
-        rating: 4.3,
-        reviews: 89,
-        colors: ["#8b4513", "#000000", "#f5f5dc"],
-        colorNames: ["Brown", "Black", "Beige"],
-        sizes: ["One Size"],
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=800&fit=crop",
-        badge: "sale",
-        stock: 3,
-        featured: true
-    },
-    {
-        id: 4,
-        name: "Classic White Shirt",
-        brand: "Urban Essentials",
-        category: "men",
-        price: 59.99,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.6,
-        reviews: 178,
-        colors: ["#ffffff", "#87ceeb", "#ffc0cb"],
-        colorNames: ["White", "Light Blue", "Pink"],
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop",
-        badge: null,
-        stock: 67,
-        featured: false
-    },
-    {
-        id: 5,
-        name: "Gold Chain Necklace",
-        brand: "Elegance Jewelry",
-        category: "accessories",
-        price: 79.99,
-        originalPrice: 99.99,
-        discount: 20,
-        rating: 4.7,
-        reviews: 145,
-        colors: ["#c9a959", "#c0c0c0"],
-        colorNames: ["Gold", "Silver"],
-        sizes: ["16 inch", "18 inch", "20 inch"],
-        image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=800&fit=crop",
-        badge: "sale",
-        stock: 28,
-        featured: true
-    },
-    {
-        id: 6,
-        name: "Aviator Sunglasses",
-        brand: "SunStyle",
-        category: "accessories",
-        price: 45.00,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.4,
-        reviews: 92,
-        colors: ["#c9a959", "#c0c0c0", "#000000"],
-        colorNames: ["Gold", "Silver", "Black"],
-        sizes: ["One Size"],
-        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=800&fit=crop",
-        badge: null,
-        stock: 89,
-        featured: false
-    },
-    {
-        id: 7,
-        name: "Floral Summer Dress",
-        brand: "Bloom Fashion",
-        category: "women",
-        price: 69.99,
-        originalPrice: 89.99,
-        discount: 22,
-        rating: 4.2,
-        reviews: 67,
-        colors: ["#ff69b4", "#87ceeb", "#ffffff"],
-        colorNames: ["Pink Floral", "Blue Floral", "White Floral"],
-        sizes: ["XS", "S", "M", "L"],
-        image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&h=800&fit=crop",
-        badge: "sale",
-        stock: 23,
-        featured: true
-    },
-    {
-        id: 8,
-        name: "Slim Fit Chinos",
-        brand: "Urban Essentials",
-        category: "men",
-        price: 54.99,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.5,
-        reviews: 203,
-        colors: ["#1a1a2e", "#8b4513", "#2f4f4f"],
-        colorNames: ["Navy", "Brown", "Olive"],
-        sizes: ["28", "30", "32", "34", "36"],
-        image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&h=800&fit=crop",
-        badge: null,
-        stock: 78,
-        featured: false
-    },
-    {
-        id: 9,
-        name: "Leather Watch",
-        brand: "TimeStyle",
-        category: "accessories",
-        price: 159.99,
-        originalPrice: 199.99,
-        discount: 20,
-        rating: 4.8,
-        reviews: 312,
-        colors: ["#8b4513", "#000000"],
-        colorNames: ["Brown Leather", "Black Leather"],
-        sizes: ["One Size"],
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=800&fit=crop",
-        badge: "bestseller",
-        stock: 19,
-        featured: true
-    },
-    {
-        id: 10,
-        name: "High-Waist Yoga Pants",
-        brand: "FitStyle",
-        category: "women",
-        price: 44.99,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.6,
-        reviews: 445,
-        colors: ["#000000", "#1a1a2e", "#808080"],
-        colorNames: ["Black", "Navy", "Gray"],
-        sizes: ["XS", "S", "M", "L", "XL"],
-        image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&h=800&fit=crop",
-        badge: null,
-        stock: 156,
-        featured: false
-    },
-    {
-        id: 11,
-        name: "Wool Blend Blazer",
-        brand: "Executive Style",
-        category: "men",
-        price: 189.99,
-        originalPrice: 249.99,
-        discount: 24,
-        rating: 4.7,
-        reviews: 89,
-        colors: ["#1a1a2e", "#000000", "#808080"],
-        colorNames: ["Navy", "Black", "Charcoal"],
-        sizes: ["S", "M", "L", "XL"],
-        image: "https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=600&h=800&fit=crop",
-        badge: "sale",
-        stock: 12,
-        featured: true
-    },
-    {
-        id: 12,
-        name: "Canvas Tote Bag",
-        brand: "EcoStyle",
-        category: "bags",
-        price: 35.99,
-        originalPrice: null,
-        discount: 0,
-        rating: 4.3,
-        reviews: 178,
-        colors: ["#f5f5dc", "#000000", "#1a1a2e"],
-        colorNames: ["Natural", "Black", "Navy"],
-        sizes: ["One Size"],
-        image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&h=800&fit=crop",
-        badge: "new",
-        stock: 234,
-        featured: false
+let products = [];
+const API_URL = "/api"; 
+
+async function loadProductsFromServer() {
+    try {
+        const res = await fetch("/api/products");
+
+        if (!res.ok) {
+            throw new Error("API response not OK");
+        }
+
+        const data = await res.json();
+
+        if (!data || !data.products || !Array.isArray(data.products)) {
+            throw new Error("Invalid API format");
+        }
+
+        products = data.products.map(p => ({
+            ...p,
+            id: p._id,
+            category: (p.category || "").toLowerCase(),
+            image: (p.images && p.images.length) ? p.images[0] : "https://via.placeholder.com/300",
+
+            colors: Array.isArray(p.colors) && p.colors.length ? p.colors.map(c => c.code) : ["#000000"],
+            colorNames: Array.isArray(p.colors) && p.colors.length ? p.colors.map(c => c.name) : ["Default"],
+            sizes: Array.isArray(p.sizes) && p.sizes.length ? p.sizes : ["M"],
+
+            rating: p.rating || 4,
+            reviews: p.reviewCount || 0,
+            discount: p.discount || 0,
+            badge: (p.badge || "").toLowerCase(),
+            featured: Boolean(p.featured)
+        }));
+
+        console.log("✅ PRODUCTS READY:", products.length);
+
+        if (typeof initProductsPage === "function") {
+            initProductsPage();
+        } else {
+            console.error("❌ initProductsPage is undefined");
+        }
+
+        if (typeof initHomePage === "function") initHomePage();
+        if (typeof initProductDetail === "function") initProductDetail();
+        if (typeof updateMiniCart === "function") updateMiniCart();
+
+    } catch (err) {
+        console.error("🔥 CRITICAL FRONTEND ERROR:", err);
+        alert("JS crashed. Open console now.");
     }
-];
+}
+
+
+
+
 
 // =====================================================
 // GLOBAL VARIABLES
@@ -234,8 +71,9 @@ let wishlist = [];
 // UTILITY FUNCTIONS
 // =====================================================
 function formatPrice(price) {
-    return '$' + price.toFixed(2);
+    return '₹' + Number(price).toLocaleString();
 }
+
 
 function generateStars(rating) {
     let stars = '';
@@ -323,8 +161,12 @@ function saveCart() {
 }
 
 function addToCart(productId, quantity, selectedColor, selectedSize) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
+    const product = products.find(p => String(p.id) === String(productId));
+
+    if (!product) {
+        console.error("❌ Add To Cart Failed. Product not found:", productId);
+        return;
+    }
     
     quantity = quantity || 1;
     selectedColor = selectedColor || product.colors[0];
@@ -508,7 +350,7 @@ function updateWishlistBadges() {
 
 function updateWishlistButtons() {
     document.querySelectorAll('.product-wishlist').forEach(btn => {
-        const id = parseInt(btn.dataset.productId);
+        const id = btn.dataset.productId;
         const icon = btn.querySelector('i');
         if (isInWishlist(id)) {
             btn.classList.add('active');
@@ -526,7 +368,7 @@ function updateWishlistButtons() {
 
 // =====================================================
 // PRODUCT CARD RENDERER
-// =====================================================
+// ====================================================
 function createProductCard(product) {
     const inWishlist = isInWishlist(product.id);
     
@@ -548,16 +390,23 @@ function createProductCard(product) {
                     <img src="${product.image}" alt="${product.name}" loading="lazy">
                 </a>
                 ${badgeHtml}
-                <button class="product-wishlist ${inWishlist ? 'active' : ''}" data-product-id="${product.id}" onclick="event.preventDefault(); toggleWishlist(${product.id}); this.classList.toggle('active'); this.querySelector('i').className = this.classList.contains('active') ? 'fas fa-heart' : 'far fa-heart';">
-                    <i class="${inWishlist ? 'fas' : 'far'} fa-heart"></i>
-                </button>
-                <div class="product-overlay">
-                    <button class="overlay-btn" onclick="event.preventDefault(); openQuickView(${product.id})">
-                        <i class="fas fa-eye"></i> Quick View
-                    </button>
-                    <button class="overlay-btn" onclick="event.preventDefault(); addToCart(${product.id})">
-                        <i class="fas fa-shopping-bag"></i> Add to Bag
-                    </button>
+                <button class="product-wishlist ${inWishlist ? 'active' : ''}" 
+    data-product-id="${product.id}" 
+    onclick="event.preventDefault(); toggleWishlist('${product.id}'); this.classList.toggle('active'); this.querySelector('i').className = this.classList.contains('active') ? 'fas fa-heart' : 'far fa-heart';">
+    
+    <i class="${inWishlist ? 'fas' : 'far'} fa-heart"></i>
+</button>
+
+<div class="product-overlay">
+    <button class="overlay-btn" onclick="event.preventDefault(); openQuickView('${product.id}')">
+        <i class="fas fa-eye"></i> Quick View
+    </button>
+
+    <button class="overlay-btn" onclick="event.preventDefault(); addToCart('${product.id}')">
+        <i class="fas fa-shopping-bag"></i> Add to Bag
+    </button>
+</div>
+
                 </div>
             </div>
             <div class="product-info">
@@ -831,8 +680,12 @@ function setupViewToggle() {
 // QUICK VIEW MODAL
 // =====================================================
 function openQuickView(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
+    const product = products.find(p => String(p.id) === String(productId));
+    if (!product) {
+        console.error("❌ Quick View Product Not Found:", productId);
+        return;
+    }
+
     
     let modal = document.getElementById('quickViewModal');
     if (!modal) {
@@ -1273,9 +1126,18 @@ function initProductDetail() {
     
     // Get product ID from URL
     const params = new URLSearchParams(window.location.search);
-    const productId = parseInt(params.get('id')) || 1;
-    const product = products.find(p => p.id === productId) || products[0];
-    
+   const productId = params.get('id');
+const product = products.find(p => String(p.id) === String(productId));
+if (!product) {
+    console.error("❌ Add To Cart Failed. Product not found:", productId);
+    return;
+}
+
+if (!product) {
+    console.error("Product not found for ID:", productId);
+    return;
+}
+
     if (!product) return;
     
     let selectedColor = product.colors[0];
@@ -1504,28 +1366,13 @@ function initBackToTop() {
 // =====================================================
 // INITIALIZATION
 // =====================================================
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== StyleVerse E-Commerce Initializing ===');
-    
-    // Initialize cart and wishlist from localStorage
+document.addEventListener("DOMContentLoaded", function () {
     initCart();
     initWishlist();
-    
-    // Initialize header functionality
     initHeader();
-    
-    // Initialize back to top
     initBackToTop();
-    
-    // Initialize page-specific functionality
-    initHomePage();
-    initProductsPage();
-    initProductDetail();
     initCartPage();
     initCheckoutPage();
-    
-    // Update mini cart
-    updateMiniCart();
-    
-    console.log('=== StyleVerse Ready! ===');
+
+    loadProductsFromServer(); // ✅ THIS ALONE IS ENOUGH
 });
