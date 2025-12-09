@@ -5,55 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Bag | StyleVerse</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .cart-page { padding:40px 0; min-height:60vh; }
+        .cart-wrapper { display:grid; grid-template-columns:1fr 380px; gap:40px; }
+        @media(max-width:900px) { .cart-wrapper { grid-template-columns:1fr; } }
+        .cart-item { display:grid; grid-template-columns:auto 1fr auto auto auto; gap:20px; align-items:center; padding:20px; background:white; border-radius:12px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+        @media(max-width:600px) { .cart-item { grid-template-columns:auto 1fr; } .col-price,.col-quantity,.col-total { display:none; } }
+        .cart-item-image img { width:80px; height:100px; object-fit:cover; border-radius:8px; }
+        .cart-item-name { font-weight:600; font-size:16px; margin-bottom:5px; }
+        .cart-item-brand { font-size:13px; color:#888; }
+        .cart-item-variant { font-size:13px; color:#666; margin-top:5px; }
+        .col-price, .col-total { font-weight:600; }
+        .quantity-selector { display:flex; align-items:center; border:2px solid #e5e7eb; border-radius:8px; overflow:hidden; }
+        .qty-btn { width:36px; height:36px; border:none; background:#f9fafb; cursor:pointer; font-size:16px; }
+        .qty-btn:hover { background:#e5e7eb; }
+        .qty-value { width:40px; text-align:center; font-weight:600; }
+        .remove-btn { width:36px; height:36px; border:none; background:#fee2e2; color:#ef4444; border-radius:8px; cursor:pointer; }
+        .remove-btn:hover { background:#ef4444; color:white; }
+        .order-summary { background:white; border-radius:16px; padding:25px; box-shadow:0 2px 10px rgba(0,0,0,0.05); position:sticky; top:100px; }
+        .summary-title { font-size:20px; font-weight:700; margin-bottom:20px; }
+        .summary-row { display:flex; justify-content:space-between; padding:10px 0; font-size:15px; }
+        .summary-total { display:flex; justify-content:space-between; padding:15px 0; font-size:20px; font-weight:700; border-top:2px solid #e5e7eb; margin-top:10px; }
+        .checkout-btn { width:100%; padding:16px; font-size:16px; margin-top:20px; }
+        .empty-cart-state { text-align:center; padding:80px 20px; }
+        .empty-cart-state i { font-size:64px; color:#e5e7eb; margin-bottom:20px; display:block; }
+        .empty-cart-state h2 { margin-bottom:10px; }
+        .empty-cart-state p { color:#6b7280; margin-bottom:25px; }
+        .shipping-progress { background:#f3f4f6; border-radius:10px; padding:15px; margin-bottom:20px; }
+        .progress-track { height:8px; background:#e5e7eb; border-radius:4px; overflow:hidden; margin-bottom:10px; }
+        .progress-fill { height:100%; background:linear-gradient(90deg,#6366f1,#8b5cf6); border-radius:4px; transition:width 0.3s; }
+        .progress-message { font-size:13px; color:#6b7280; }
+        .progress-message i { color:#6366f1; margin-right:5px; }
+    </style>
 </head>
 <body>
-    <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="announcement-content">
-            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over $99</span>
-            <span class="divider">|</span>
-            <span><i class="fas fa-gift"></i> Use Code STYLE20 for 20% Off</span>
+            <span><i class="fas fa-truck"></i> Free Shipping on Orders Over ₹999</span>
         </div>
         <button class="announcement-close"><i class="fas fa-times"></i></button>
     </div>
 
-    <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="index.html" class="logo">
-                <span class="logo-text">Style<span class="logo-accent">Verse</span></span>
-            </a>
+            <a href="index.html" class="logo"><span class="logo-text">Style<span class="logo-accent">Verse</span></span></a>
             <nav class="nav-main" id="navMain">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="products.html?category=women" class="nav-link">Women</a></li>
                     <li class="nav-item"><a href="products.html?category=men" class="nav-link">Men</a></li>
                     <li class="nav-item"><a href="products.html?category=accessories" class="nav-link">Accessories</a></li>
                     <li class="nav-item"><a href="products.html?sale=true" class="nav-link nav-link-sale">Sale</a></li>
-                    <li class="nav-item"><a href="products.html?new=true" class="nav-link">New Arrivals</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
                 <button class="action-btn search-toggle"><i class="fas fa-search"></i></button>
-                <a href="#" class="action-btn wishlist-btn">
-                    <i class="fas fa-heart"></i>
-                    <span class="badge wishlist-count">0</span>
-                </a>
-                <button class="action-btn cart-btn" id="cartToggle">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="badge cart-count">0</span>
-                </button>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <span class="hamburger"></span>
-                </button>
+                <a href="#" class="action-btn wishlist-btn"><i class="fas fa-heart"></i><span class="badge wishlist-count">0</span></a>
+                <button class="action-btn cart-btn" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="badge cart-count">0</span></button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><span class="hamburger"></span></button>
             </div>
         </div>
     </header>
 
-    <!-- Mini Cart Sidebar -->
     <div class="mini-cart-overlay" id="miniCartOverlay"></div>
     <aside class="mini-cart" id="miniCart">
         <div class="mini-cart-header">
@@ -61,11 +75,8 @@
             <button class="mini-cart-close" id="miniCartClose"><i class="fas fa-times"></i></button>
         </div>
         <div class="mini-cart-body" id="miniCartBody"></div>
-        <div class="mini-cart-footer" id="miniCartFooter" style="display: none;">
-            <div class="cart-subtotal">
-                <span>Subtotal</span>
-                <span class="subtotal-amount">$0.00</span>
-            </div>
+        <div class="mini-cart-footer" id="miniCartFooter" style="display:none;">
+            <div class="cart-subtotal"><span>Subtotal</span><span class="subtotal-amount">₹0</span></div>
             <div class="mini-cart-actions">
                 <a href="cart.html" class="btn btn-outline">View Bag</a>
                 <a href="checkout.html" class="btn btn-primary">Checkout</a>
@@ -73,169 +84,61 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="cart-page">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb-section">
-            <div class="container">
+        <div class="container">
+            <div class="breadcrumb-section" style="padding:0 0 20px;">
                 <nav class="breadcrumb">
                     <a href="index.html">Home</a>
                     <span class="separator"><i class="fas fa-chevron-right"></i></span>
                     <span class="current">Shopping Bag</span>
                 </nav>
             </div>
-        </div>
 
-        <!-- Page Title -->
-        <div class="page-header">
-            <div class="container">
-                <h1 class="page-title">Shopping Bag</h1>
+            <h1 style="font-size:32px;margin-bottom:30px;">Shopping Bag</h1>
+
+            <!-- Empty Cart State -->
+            <div class="empty-cart-state" id="emptyCartPage" style="display:none;">
+                <i class="fas fa-shopping-bag"></i>
+                <h2>Your bag is empty</h2>
+                <p>Looks like you haven't added anything yet.</p>
+                <a href="products.html" class="btn btn-primary btn-lg">Start Shopping</a>
             </div>
-        </div>
 
-        <div class="cart-content">
-            <div class="container">
-                <!-- Empty Cart State -->
-                <div class="empty-cart-state" id="emptyCartPage" style="display: none;">
-                    <div class="empty-cart-icon">
-                        <i class="fas fa-shopping-bag"></i>
+            <!-- Cart Content -->
+            <div class="cart-wrapper" id="cartWrapper">
+                <div class="cart-main">
+                    <div class="shipping-progress">
+                        <div class="progress-track"><div class="progress-fill" id="shippingProgress" style="width:0%;"></div></div>
+                        <p class="progress-message" id="shippingMessage"><i class="fas fa-truck"></i> Add <strong>₹999</strong> more for FREE Shipping</p>
                     </div>
-                    <h2>Your bag is empty</h2>
-                    <p>Looks like you haven't added anything to your bag yet.</p>
-                    <a href="products.html" class="btn btn-primary btn-lg">Start Shopping</a>
+                    <div id="cartItems"></div>
+                    <div style="display:flex;justify-content:space-between;margin-top:20px;">
+                        <a href="products.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                        <button class="btn btn-outline" id="clearCart" style="color:#ef4444;border-color:#ef4444;"><i class="fas fa-trash"></i> Clear Cart</button>
+                    </div>
                 </div>
 
-                <!-- Cart With Items -->
-                <div class="cart-wrapper" id="cartWrapper">
-                    <!-- Cart Main Section -->
-                    <div class="cart-main">
-                        <!-- Free Shipping Progress -->
-                        <div class="shipping-progress-bar">
-                            <div class="progress-track">
-                                <div class="progress-fill" id="shippingProgress"></div>
-                            </div>
-                            <p class="progress-message" id="shippingMessage">
-                                <i class="fas fa-truck"></i>
-                                Add <strong>$99.00</strong> more for FREE Shipping
-                            </p>
-                        </div>
-
-                        <!-- Cart Table Header -->
-                        <div class="cart-table-header">
-                            <div class="col-product">Product</div>
-                            <div class="col-price">Price</div>
-                            <div class="col-quantity">Quantity</div>
-                            <div class="col-total">Total</div>
-                            <div class="col-actions"></div>
-                        </div>
-
-                        <!-- Cart Items Container -->
-                        <div class="cart-items-container" id="cartItems">
-                            <!-- Items will be rendered by JavaScript -->
-                        </div>
-
-                        <!-- Cart Actions -->
-                        <div class="cart-bottom-actions">
-                            <a href="products.html" class="btn btn-outline">
-                                <i class="fas fa-arrow-left"></i> Continue Shopping
-                            </a>
-                            <button class="btn btn-outline btn-danger" id="clearCart">
-                                <i class="fas fa-trash-alt"></i> Clear Cart
-                            </button>
-                        </div>
+                <aside class="order-summary">
+                    <h3 class="summary-title">Order Summary</h3>
+                    <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+                    <div class="summary-row"><span>Shipping</span><span id="shippingAmount">₹99</span></div>
+                    <div class="summary-row"><span>Tax (18%)</span><span id="taxAmount">₹0</span></div>
+                    <div class="summary-total"><span>Total</span><span id="totalAmount">₹0</span></div>
+                    <a href="checkout.html" class="btn btn-primary checkout-btn"><i class="fas fa-lock"></i> Proceed to Checkout</a>
+                    <div style="display:flex;justify-content:center;gap:15px;margin-top:20px;font-size:12px;color:#9ca3af;">
+                        <span><i class="fas fa-lock"></i> Secure</span>
+                        <span><i class="fas fa-undo"></i> Easy Returns</span>
                     </div>
-
-                    <!-- Order Summary Sidebar -->
-                    <aside class="order-summary">
-                        <div class="summary-card">
-                            <h3 class="summary-title">Order Summary</h3>
-
-                            <!-- Coupon Code -->
-                            <div class="coupon-section">
-                                <div class="coupon-input-wrapper">
-                                    <input type="text" placeholder="Enter coupon code" id="couponInput">
-                                    <button class="btn btn-sm" id="applyCoupon">Apply</button>
-                                </div>
-                            </div>
-
-                            <div class="summary-divider"></div>
-
-                            <!-- Summary Details -->
-                            <div class="summary-details">
-                                <div class="summary-row">
-                                    <span>Subtotal</span>
-                                    <span id="subtotal">$0.00</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Shipping</span>
-                                    <span id="shippingAmount">$9.99</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Estimated Tax</span>
-                                    <span id="taxAmount">$0.00</span>
-                                </div>
-                            </div>
-
-                            <div class="summary-divider"></div>
-
-                            <!-- Total -->
-                            <div class="summary-total">
-                                <span>Total</span>
-                                <span id="totalAmount">$0.00</span>
-                            </div>
-
-                            <!-- Checkout Button -->
-                            <a href="checkout.html" class="btn btn-primary btn-lg btn-block checkout-btn">
-                                Proceed to Checkout
-                            </a>
-
-                            <!-- Express Checkout -->
-                            <div class="express-checkout">
-                                <p class="express-label">Express Checkout</p>
-                                <div class="express-buttons">
-                                    <button class="express-btn paypal">
-                                        <i class="fab fa-paypal"></i> PayPal
-                                    </button>
-                                    <button class="express-btn google">
-                                        <i class="fab fa-google-pay"></i>
-                                    </button>
-                                    <button class="express-btn apple">
-                                        <i class="fab fa-apple-pay"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Trust Badges -->
-                            <div class="trust-badges">
-                                <div class="trust-item">
-                                    <i class="fas fa-lock"></i>
-                                    <span>Secure Checkout</span>
-                                </div>
-                                <div class="trust-item">
-                                    <i class="fas fa-undo"></i>
-                                    <span>Easy Returns</span>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
+                </aside>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 StyleVerse. All rights reserved.</p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2025 StyleVerse. All rights reserved.</p></div>
         </div>
     </footer>
-
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
 
     <script src="script.js"></script>
 </body>
